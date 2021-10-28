@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateFilter } from 'redux/filter/filter-actions';
+import { getValue } from '../../redux/selectors';
 
 const Label = styled.label`
   display: flex;
@@ -20,7 +21,7 @@ const Input = styled.input`
 `;
 
 export default function Filter() {
-  const value = useSelector(state => state.contacts.filter);
+  const value = useSelector(getValue);
   const dispatch = useDispatch();
   return (
     <Label>

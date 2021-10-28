@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import ContactsListItem from 'components/ContactsListItem';
 import filterContacts from 'utils/filter-contacts';
 import { useSelector } from 'react-redux';
+import { getValue, getContacts } from '../../redux/selectors';
 
 const Ul = styled.ul`
   list-style: none;
@@ -19,8 +20,8 @@ const Li = styled.li`
 `;
 
 export default function ContactsList() {
-  const contacts = useSelector(state => state.contacts.items);
-  const value = useSelector(state => state.contacts.filter);
+  const contacts = useSelector(getContacts);
+  const value = useSelector(getValue);
 
   const filteredContacts = filterContacts(contacts, value);
 
